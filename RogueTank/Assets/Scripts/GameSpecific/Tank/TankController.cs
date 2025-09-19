@@ -1,6 +1,5 @@
 using GameSpecific.Tank.Data;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 namespace GameSpecific.Tank
 {

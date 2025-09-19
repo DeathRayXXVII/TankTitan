@@ -155,5 +155,5 @@ MonoBehaviour:
   rb: {fileID: 1891100683952065286}
   destructibleLayer:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 384
   bounce: 0

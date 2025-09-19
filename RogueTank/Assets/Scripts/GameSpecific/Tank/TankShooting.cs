@@ -12,7 +12,7 @@ namespace GameSpecific.Tank
         [SerializeField] private BulletBehavior bulletBehavior;
         public BulletData bulletData;
         public Transform fireTransform;
-        private ZP_Tools.ObjectPool<BulletBehavior> bulletPool;
+        public ZP_Tools.ObjectPool<BulletBehavior> bulletPool;
         
         [SerializeField] private BombBehavior bombBehavior;
         public BulletData bombData;

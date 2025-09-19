@@ -26,7 +26,7 @@ namespace GameSpecific.Tank
         private bool _alreadyAttacked;
         private bool _bombTriggered;
         private bool _canMove = true;
-        public float _attackTimer;
+        public float attackTimer;
         private float _bombTimer;
     
     
@@ -76,26 +76,35 @@ namespace GameSpecific.Tank
         {
             while (_canMove)
             {
-              _attackTimer += Time.deltaTime;
+              attackTimer += Time.deltaTime;
               _bombTimer += Time.deltaTime;  
                 Vector3 position = transform.position;
                 bool playerInSightRange = Physics.CheckSphere(position, sightRange, targetLayer);
                 bool playerInAttackRange = Physics.CheckSphere(position, attackRange, targetLayer);
                 Patrolling();
-                if (playerInSightRange && playerInAttackRange)
+                if (!CanSeePlayer() && playerInSightRange)
+                {
+                    //RandomRotateBarrel();
+                    FindPlayer();
+                }
+                if (CanSeePlayer() && playerInAttackRange)
                 {
                     RotateBarrel();
-                }
-
-                if (CanSeePlayer())
-                {
                     _isRotating = false;
-                    if (_attackTimer >= tankShooting.bulletData.timeBetweenShots)
+                    if (attackTimer >= tankShooting.bulletData.timeBetweenShots)
                     {
                         AttackPlayer();
-                        _attackTimer = 0f;
+                        attackTimer = 0f;
                     }
-                    if (playerInSightRange && _bombTriggered)
+                    
+                }
+                if (CanSeePlayer() && playerInSightRange)
+                {
+                    FollowPlayer();
+                    RotateBarrel();
+                    _isRotating = false;
+                    //StopCoroutine(RotateTimer());
+                    if (_bombTriggered)
                     {
                         if (_bombTimer >= tankShooting.bombData.timeBetweenShots)
                         {
@@ -111,7 +120,7 @@ namespace GameSpecific.Tank
         {
             while (!_canMove)
             {
-                _attackTimer += Time.deltaTime;
+                attackTimer += Time.deltaTime;
                 if (!CanSeePlayer())
                 {
                     FindPlayer();
@@ -125,11 +134,11 @@ namespace GameSpecific.Tank
                 {
                     Debug.Log("CanSeePlayer");
                     _isRotating = false;
-                    if (_attackTimer >= tankShooting.bulletData.timeBetweenShots)
+                    if (attackTimer >= tankShooting.bulletData.timeBetweenShots)
                     {
                         Debug.Log("AttackPlayer1");
                         AttackPlayer();
-                        _attackTimer = 0f;
+                        attackTimer = 0f;
                     }
                 }
             
@@ -183,10 +192,9 @@ namespace GameSpecific.Tank
             var transform1 = tankShooting.fireTransform.transform;
             Vector3 rayDirection = transform1.up;
             Vector3 nextStartPosition = transform1.position;
-            RaycastHit hit;
             while (reflections <= maxReflections)
             {
-                if (Physics.Raycast(nextStartPosition, rayDirection, out hit))
+                if (Physics.Raycast(nextStartPosition, rayDirection, out var hit))
                 {
                     Debug.DrawRay(nextStartPosition, rayDirection * hit.distance,
                         reflections == 0 ? Color.red : Color.green);
@@ -201,12 +209,10 @@ namespace GameSpecific.Tank
                         AttackPlayer();
                         break;
                     }
-                    else
-                    {
-                        // Calculate the reflection vector
-                        rayDirection = Vector3.Reflect(rayDirection, hit.normal);
-                        reflections++;
-                    }
+
+                    // Calculate the reflection vector
+                    rayDirection = Vector3.Reflect(rayDirection, hit.normal);
+                    reflections++;
                 }
                 else
                 {
@@ -265,12 +271,10 @@ namespace GameSpecific.Tank
 
         private void RandomRotateBarrel()
         {
-            if (!_isRotating)
-            {
-                float randomAngle = Random.Range(0f, 360f);
-                Quaternion newRotation = Quaternion.Euler(0f, randomAngle, 0f);
-                StartCoroutine(SmoothRotate(newRotation));
-            }
+            if (_isRotating) return;
+            float randomAngle = Random.Range(0f, 360f);
+            Quaternion newRotation = Quaternion.Euler(0f, randomAngle, 0f);
+            StartCoroutine(SmoothRotate(newRotation));
         }
 
         private IEnumerator SmoothRotate(Quaternion targetRotation)
@@ -294,17 +298,11 @@ namespace GameSpecific.Tank
         private bool CanSeePlayer()
         {
             _direction = target.position - transform.position;
-            if (Physics.Raycast(transform.position, _direction, out var hit))
-            {
-                // Debug.Log($"Raycast hit: {hit.transform.name}");
-                if (hit.transform == target)
-                {
-                    // Debug.Log("Enemy can see the player.");
-                    return true;
-                }
-            }
+            if (!Physics.Raycast(transform.position, _direction, out var hit)) return false;
+            // Debug.Log($"Raycast hit: {hit.transform.name}");
+            return hit.transform == target;
+            // Debug.Log("Enemy can see the player.");
             // Debug.Log("Enemy cannot see the player.");
-            return false;
         }
 
         protected override void Move()
