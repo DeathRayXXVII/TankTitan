@@ -32,4 +32,4 @@ MonoBehaviour:
         moveEffect: {fileID: 0}
         fireEffect: {fileID: 0}
         isBoss: 0
-        isStationary: 0
+        isStationary: 1

@@ -2,6 +2,7 @@ using System.Collections;
 using GameSpecific.Tank.Data;
 using UnityEngine;
 using UnityEngine.Events;
+using Utilities;
 
 
 namespace GameSpecific.Tank
@@ -9,7 +10,7 @@ namespace GameSpecific.Tank
     public class SceneBehavior : MonoBehaviour
     {
         [SerializeField] private LevelData levelData;
-        //[SerializeField] private ScreenFader fader;
+        [SerializeField] private ScreenFader fader;
         [SerializeField] private float fadeDuration = 1f;
         public UnityEvent onLevelLoaded;
 
@@ -28,12 +29,12 @@ namespace GameSpecific.Tank
         private IEnumerator LoadCurrentLevel()
         {
             if (levelRoot != null) Destroy(levelRoot);
-            //if (fader != null) yield return StartCoroutine(fader.FadeOut(fadeDuration));
+            if (fader != null) yield return StartCoroutine(fader.FadeOut(fadeDuration));
             var info = levelData.GetCurrentLevelInfo();
             if (info == null || info.levelPrefab == null)
             {
                 Debug.LogError("LevelInfoData or levelPrefab is null for the current level.");
-                //if (fader != null) yield return StartCoroutine(fader.FadeIn(fadeDuration));
+                if (fader != null) yield return StartCoroutine(fader.FadeIn(fadeDuration));
                 yield break;
             }
 
@@ -65,7 +66,7 @@ namespace GameSpecific.Tank
             
             levelData.bossLevelActive.value = info.levelPrefab != null && info.levelPrefab.name.ToLower().Contains("boss");
             
-            //if (fader != null) yield return StartCoroutine(fader.FadeIn(fadeDuration));
+            if (fader != null) yield return StartCoroutine(fader.FadeIn(fadeDuration));
             
             onLevelLoaded?.Invoke();
 

@@ -845,11 +845,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e90a526a292e224489f7513c2cb887d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tankData: {fileID: 11400000, guid: 4d24b81b8d818ba44b9a40c2531517f3, type: 2}
+  tankData: {fileID: 11400000, guid: 0b85e01e64f9f1140b76298f6e9b2997, type: 2}
   tankShooting: {fileID: 114590854059090408}
   barrel: {fileID: 7279981528663160518}
   agent: {fileID: 7441940670551192497}
   startTankAction: {fileID: 11400000, guid: 35a9d4c0023fe7246a541fae9a166ac2, type: 2}
+  stopTankAction: {fileID: 11400000, guid: c4cac695b1733f14cb81ab8385d24481, type: 2}
   target: {fileID: 0}
   stoppingDistance: 1
   walkPointRange: 20

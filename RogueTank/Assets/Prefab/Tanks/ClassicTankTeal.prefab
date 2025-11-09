@@ -67,7 +67,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: be9e8e29bfa20a748882acf0fa29023d, type: 2}
-  - {fileID: 2100000, guid: e90fa487d9fd78a48a8419b325fd88f3, type: 2}
+  - {fileID: 2100000, guid: daafc6ab1ca6ca34e9e11c2670467e9f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -738,7 +738,7 @@ GameObject:
   - component: {fileID: 3820702606809135276}
   - component: {fileID: 6978687935758694985}
   m_Layer: 6
-  m_Name: ClassicTankGray
+  m_Name: ClassicTankTeal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -845,7 +845,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e90a526a292e224489f7513c2cb887d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tankData: {fileID: 11400000, guid: b059cc056f2c85c42ae8eb455f4351da, type: 2}
+  tankData: {fileID: 11400000, guid: 7741bb910545ec146bd8b13b712ab47e, type: 2}
   tankShooting: {fileID: 6978687935758694985}
   barrel: {fileID: 7279981528663160518}
   agent: {fileID: 7441940670551192497}
@@ -879,7 +879,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tankData: {fileID: 11400000, guid: b059cc056f2c85c42ae8eb455f4351da, type: 2}
   bulletBehavior: {fileID: -5355680902507497713, guid: a3fcf6dc0e602264e91055ce77b6fe8f, type: 3}
-  bulletData: {fileID: 11400000, guid: 9a17fb055c06f494382beb7b9f367b34, type: 2}
+  bulletData: {fileID: 11400000, guid: 85329915fb5377e47be83ce007564c59, type: 2}
   fireTransform: {fileID: 6741945192489287718}
   bombBehavior: {fileID: 3357847701019975544, guid: 6b823719c766a2b4d918a8f8996a14c7, type: 3}
   bombData: {fileID: 11400000, guid: ea69b8eaa12238d4490f85b3fd2c5218, type: 2}
@@ -954,7 +954,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e90fa487d9fd78a48a8419b325fd88f3, type: 2}
+  - {fileID: 2100000, guid: daafc6ab1ca6ca34e9e11c2670467e9f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

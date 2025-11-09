@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c1ec66b2ee70984995fb273d6891cb9, type: 3}
+  m_Name: Level_5
+  m_EditorClassIdentifier: Assembly-CSharp::GameSpecific.Tank.Data.LevelInfoData
+  levelCompleted: 0
+  levelPrefab: {fileID: 4454790115121108031, guid: 6444f598aee274442be941d5cba49c53, type: 3}
+  spawnPosition: {x: 0, y: 0, z: 0}
+  enemySpawns:
+  - prefab: {fileID: 7226978680875959476, guid: caafc05c1ead8b241945b6f3704f6ce8, type: 3}
+    position: {x: 34.2, y: -0.0000009536743, z: 9.2}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
+  - prefab: {fileID: 7226978680875959476, guid: caafc05c1ead8b241945b6f3704f6ce8, type: 3}
+    position: {x: 9.3, y: -0.0000009536743, z: 24.9}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
+  levelObjects: []
