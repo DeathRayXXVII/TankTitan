@@ -1,5 +1,5 @@
 using System.Globalization;
-using Primitives;
+using Core.Primitives;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;

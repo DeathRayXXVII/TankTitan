@@ -1,6 +1,6 @@
 // - - Created by Zac Peterson
 
-using Primitives;
+using Core.Primitives;
 using UnityEngine;
 
 namespace ZP_Tools

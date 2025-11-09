@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Primitives
+namespace Core.Primitives
 {
     [CreateAssetMenu (fileName = "FloatData", menuName = "Data/Primitive/FloatData")]
     public class FloatData : ScriptableObject

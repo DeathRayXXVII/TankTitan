@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using Primitives;
+using Core.Primitives;
 using UnityEngine;
 
 namespace GameSpecific.Tank.Data

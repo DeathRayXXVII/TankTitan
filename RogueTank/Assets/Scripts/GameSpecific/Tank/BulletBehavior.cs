@@ -1,4 +1,5 @@
 using GameSpecific.Tank.Data;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace GameSpecific.Tank
@@ -8,6 +9,7 @@ namespace GameSpecific.Tank
         [SerializeField] private BulletData bulletData;
         [SerializeField] private Rigidbody rb;
         [SerializeField] private LayerMask destructibleLayer;
+        [SerializeField] private GameAction playerHitAction, enemyHitAction;
         private Vector3 _direction;
         public float bounce;
 
@@ -27,6 +29,15 @@ namespace GameSpecific.Tank
             }
             if (collision.gameObject.layer == 6 || (destructibleLayer.value & (1 << collision.gameObject.layer)) != 0)
             {
+                switch (collision.gameObject.layer)
+                {
+                    case 6:
+                        playerHitAction.RaiseAction();
+                        break;
+                    case 7:
+                        enemyHitAction.RaiseAction();
+                        break;
+                }
                 collision.gameObject.SetActive(false);
                 ResetBullet();
             }

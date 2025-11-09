@@ -3282,6 +3282,7 @@ GameObject:
   - component: {fileID: 1812213384}
   - component: {fileID: 1812213383}
   - component: {fileID: 1812213385}
+  - component: {fileID: 1812213386}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -3301,8 +3302,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b157c6499404a414b957ec911f430bf8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelData: {fileID: 11400000, guid: 6507ac220b8e46745ad77b3e8bba6010, type: 2}
+  currentEnemyCount: 0
   onStartAction: {fileID: 11400000, guid: 1faf129c78d0cfb469f724f930651d36, type: 2}
   onStart:
+    m_PersistentCalls:
+      m_Calls: []
+  clearedEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 634534824eedb734280a0856a1098ced, type: 2}
+        m_TargetAssemblyTypeName: Core.Debugger, Assembly-CSharp
+        m_MethodName: OnDebug
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Level Completed
+          m_BoolArgument: 0
+        m_CallState: 2
+  failedEvent:
     m_PersistentCalls:
       m_Calls: []
 --- !u!4 &1812213384
@@ -3349,6 +3370,51 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1812213386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1812213382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 412663a223fb28c448ef681a3a5c5bf0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ActionHandler
+  gameActions:
+  - actionObj: {fileID: 11400000, guid: 6c69202eb31a2044088ada8dd88e2d6b, type: 2}
+    onRaiseEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1812213383}
+          m_TargetAssemblyTypeName: GameSpecific.Tank.RogueTanksGameManager, Assembly-CSharp
+          m_MethodName: Failed
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - actionObj: {fileID: 11400000, guid: f55f643570a1a1e4b91f64f33340928d, type: 2}
+    onRaiseEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1812213383}
+          m_TargetAssemblyTypeName: GameSpecific.Tank.RogueTanksGameManager, Assembly-CSharp
+          m_MethodName: Cleared
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1001 &1925871863
 PrefabInstance:
   m_ObjectHideFlags: 0

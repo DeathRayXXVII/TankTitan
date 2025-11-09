@@ -1,8 +1,8 @@
 using UnityEngine;
 
-namespace Primitives
+namespace Core.Primitives
 {
-    [CreateAssetMenu(fileName = "IntData", menuName = "Data/Primitives/IntData")]
+    [CreateAssetMenu(fileName = "IntData", menuName = "Data/Primitive/IntData")]
     public class IntData : ScriptableObject
     {
         private string _saveKey;

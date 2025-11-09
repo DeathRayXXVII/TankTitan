@@ -8,6 +8,7 @@ namespace GameSpecific.Tank
     {
         [SerializeField] private BulletData bombData;
         [SerializeField] private LayerMask destructibleLayer;
+        [SerializeField] private GameAction playerHitAction, enemyHitAction;
         private float _counterNum;
         private WaitForSeconds _wfsObj;
     
@@ -22,16 +23,22 @@ namespace GameSpecific.Tank
             var colliders = Physics.OverlapSphere(transform.position, bombData.explosionRadius);
             foreach (var hit in colliders)
             {
-                if (hit.gameObject.layer == 6)
+                switch (hit.gameObject.layer)
                 {
-                    hit.gameObject.SetActive(false);
-                    gameObject.SetActive(false);
+                    case 6:
+                        playerHitAction.RaiseAction();
+                        hit.gameObject.SetActive(false);
+                        gameObject.SetActive(false);
+                        break;
+                    case 7:
+                        enemyHitAction.RaiseAction();
+                        hit.gameObject.SetActive(false);
+                        gameObject.SetActive(false);
+                        break;
                 }
-                else if ((destructibleLayer.value & (1 << hit.gameObject.layer)) != 0)
-                {
-                    hit.gameObject.SetActive(false);
-                    gameObject.SetActive(false);
-                }
+                if ((destructibleLayer.value & (1 << hit.gameObject.layer)) == 0) continue;
+                hit.gameObject.SetActive(false);
+                gameObject.SetActive(false);
             }
         }
 

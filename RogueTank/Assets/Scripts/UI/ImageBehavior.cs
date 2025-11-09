@@ -2,7 +2,7 @@
 using UnityEditor;
 #endif
 
-using Primitives;
+using Core.Primitives;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
