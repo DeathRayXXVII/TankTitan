@@ -7,21 +7,25 @@ namespace GameSpecific.Tank.Data
     public class LevelInfoData : ScriptableObject
     {
         [System.Serializable]
-        private struct EnemySpawnData
+        public struct EnemySpawnData
         {
             public GameObject prefab;
             public Vector3 position;
             public Quaternion rotation;
         }
         [System.Serializable]
-        private struct LevelObjects
+        public struct LevelObjects
         {
             public GameObject prefab;
             public Vector3 position;
         }
         public bool levelCompleted;
         public GameObject levelPrefab;
+        public Vector3 spawnPosition;
         [SerializeField] private List<EnemySpawnData> enemySpawns;
         [SerializeField] private List<LevelObjects> levelObjects;
+        
+        public IReadOnlyList<EnemySpawnData> EnemySpawns => enemySpawns;
+        public IReadOnlyList<LevelObjects> LevelObjectsList => levelObjects;
     }
 }

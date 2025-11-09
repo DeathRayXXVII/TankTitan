@@ -1,77 +1,93 @@
 using System.Collections;
+using GameSpecific.Tank.Data;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using UnityEngine.Events;
+
 
 namespace GameSpecific.Tank
 {
     public class SceneBehavior : MonoBehaviour
     {
-        [Header("Scene Transition Settings")]
-        [SerializeField] private Animator transitionAnimator; // Animator for transition animations
-        [SerializeField] private float transitionDuration = 1f; // Duration of the transition animation
-        [SerializeField] private string transitionTrigger = "StartTransition"; // Trigger for the animation
+        [SerializeField] private LevelData levelData;
+        //[SerializeField] private ScreenFader fader;
+        [SerializeField] private float fadeDuration = 1f;
+        public UnityEvent onLevelLoaded;
 
-        [Header("Re-Instantiation Settings")]
-        [SerializeField] private GameObject[] objectsToSpawn; // Objects to spawn when re-instantiating the scene
-        [SerializeField] private Transform[] spawnPoints; // Spawn points for the objects
-
-        /// <summary>
-        /// Transitions to a different scene with an animation and timer.
-        /// </summary>
-        /// <param name="sceneName">The name of the scene to load.</param>
-        public void TransitionToScene(string sceneName)
+        private GameObject levelRoot;
+        
+        private void Start()
         {
-            StartCoroutine(TransitionSceneCoroutine(sceneName));
+            if (levelData == null)
+            {
+                Debug.LogError("LevelData is not assigned in SceneBehavior.");
+                return;
+            }
+            StartCoroutine(LoadCurrentLevel());
         }
 
-        /// <summary>
-        /// Re-instantiates the current scene with new objects.
-        /// </summary>
-        public void ReInstantiateScene()
+        private IEnumerator LoadCurrentLevel()
         {
-            StartCoroutine(ReInstantiateSceneCoroutine());
-        }
-
-        private IEnumerator TransitionSceneCoroutine(string sceneName)
-        {
-            if (transitionAnimator != null)
+            //if (fader != null) yield return StartCoroutine(fader.FadeOut(fadeDuration));
+            var info = levelData.GetCurrentLevelInfo();
+            if (info == null || info.levelPrefab == null)
             {
-                transitionAnimator.SetTrigger(transitionTrigger); // Play transition animation
+                Debug.LogError("LevelInfoData or levelPrefab is null for the current level.");
+                //if (fader != null) yield return StartCoroutine(fader.FadeIn(fadeDuration));
+                yield break;
             }
 
-            yield return new WaitForSeconds(transitionDuration); // Wait for the animation to finish
-
-            AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName);
-            while (!asyncLoad.isDone)
+            if (info.levelPrefab != null)
             {
-                yield return null; // Wait until the scene is fully loaded
+                levelRoot = Instantiate(info.levelPrefab, info.spawnPosition, Quaternion.identity);
+                levelRoot.name = info.levelPrefab.name + "_Instance";
             }
-        }
-
-        private IEnumerator ReInstantiateSceneCoroutine()
-        {
-            if (transitionAnimator != null)
+            
+            if (info.LevelObjectsList != null)
             {
-                transitionAnimator.SetTrigger(transitionTrigger); // Play transition animation
-            }
-
-            yield return new WaitForSeconds(transitionDuration); // Wait for the animation to finish
-
-            // Reload the current scene
-            Scene currentScene = SceneManager.GetActiveScene();
-            SceneManager.LoadScene(currentScene.name);
-
-            // Wait for the scene to reload
-            yield return null;
-
-            // Spawn new objects
-            for (int i = 0; i < objectsToSpawn.Length; i++)
-            {
-                if (i < spawnPoints.Length)
+                foreach (var obj in info.LevelObjectsList)
                 {
-                    Instantiate(objectsToSpawn[i], spawnPoints[i].position, spawnPoints[i].rotation);
+                    if (obj.prefab == null) continue;
+                    var instance = Instantiate(obj.prefab, obj.position, Quaternion.identity);
+                    if (levelRoot != null) instance.transform.SetParent(levelRoot.transform, worldPositionStays: true);
                 }
             }
+            
+            if (info.EnemySpawns != null)
+            {
+                foreach (var enemy in info.EnemySpawns)
+                {
+                    if (enemy.prefab == null) continue;
+                    var enemyInstance = Instantiate(enemy.prefab, enemy.position, enemy.rotation);
+                    if (levelRoot != null) enemyInstance.transform.SetParent(levelRoot.transform, worldPositionStays: true);
+                }
+            }
+            
+            levelData.bossLevelActive.value = info.levelPrefab != null && info.levelPrefab.name.ToLower().Contains("boss");
+            
+            //if (fader != null) yield return StartCoroutine(fader.FadeIn(fadeDuration));
+            
+            onLevelLoaded?.Invoke();
+
+            StartCoroutine(LevelCompletionClenUp(info));
+        }
+
+        private IEnumerator LevelCompletionClenUp(LevelInfoData info)
+        {
+            while (!info.levelCompleted)
+            {
+                yield return null;
+            }
+            
+            if (levelData.currentLevelIndex != null)
+            {
+                levelData.MarkLevelCompleted(levelData.currentLevelIndex.Value);
+            }
+            
+            //if (fader != null) yield return StartCoroutine(fader.FadeOut(fadeDuration));
+            
+            if (levelRoot != null) Destroy(levelRoot);
+            
+            //if (fader != null) yield return StartCoroutine(fader.FadeOut(fadeDuration));
         }
     }
 }

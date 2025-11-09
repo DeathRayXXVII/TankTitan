@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2909053724975137404}
   - component: {fileID: 6316604039673394219}
   - component: {fileID: 1427417024071396447}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Tank_Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -61,6 +61,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -83,6 +85,7 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -98,7 +101,7 @@ GameObject:
   - component: {fileID: 5659655139374304238}
   - component: {fileID: 7937811080589410769}
   - component: {fileID: 1098695073140269739}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Tank_Wheels4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -148,6 +151,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -169,6 +174,7 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -184,7 +190,7 @@ GameObject:
   - component: {fileID: 4861669621526681149}
   - component: {fileID: 3089077136010861706}
   - component: {fileID: 6645289647232924733}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Tank_Wheels5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -234,6 +240,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -255,6 +263,7 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -270,7 +279,7 @@ GameObject:
   - component: {fileID: 5277816597885323077}
   - component: {fileID: 5933939626889115614}
   - component: {fileID: 487521007492210167}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Tank_Wheels1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -320,6 +329,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -341,6 +352,7 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -354,7 +366,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6741945192489287718}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -387,7 +399,7 @@ GameObject:
   - component: {fileID: 6560377589304316261}
   - component: {fileID: 334211618923368120}
   - component: {fileID: 6597790237607173293}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Tank_Wheels
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -437,6 +449,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -458,6 +472,7 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -473,7 +488,7 @@ GameObject:
   - component: {fileID: 2185626873715669947}
   - component: {fileID: 372057135523890447}
   - component: {fileID: 7935495862226871917}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Tank_Wheels3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -523,6 +538,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -544,6 +561,7 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -557,7 +575,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 539347473667354194}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Wheels
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -594,7 +612,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1799776414868522128}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: BombArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -627,7 +645,7 @@ GameObject:
   - component: {fileID: 4298156210777391211}
   - component: {fileID: 3809155366830920883}
   - component: {fileID: 6766073841342003776}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Tank_Baral
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -677,6 +695,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -698,6 +718,7 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -714,7 +735,9 @@ GameObject:
   - component: {fileID: 6764785990539996520}
   - component: {fileID: 5608177983785882614}
   - component: {fileID: 7441940670551192497}
-  m_Layer: 6
+  - component: {fileID: 654385277259474969}
+  - component: {fileID: 114590854059090408}
+  m_Layer: 7
   m_Name: ClassicTankBrown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -768,10 +791,10 @@ Rigidbody:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7226978680875959476}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -810,6 +833,58 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &654385277259474969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7226978680875959476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e90a526a292e224489f7513c2cb887d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tankData: {fileID: 11400000, guid: 4d24b81b8d818ba44b9a40c2531517f3, type: 2}
+  tankShooting: {fileID: 114590854059090408}
+  barrel: {fileID: 7279981528663160518}
+  agent: {fileID: 7441940670551192497}
+  startTankAction: {fileID: 11400000, guid: 1faf129c78d0cfb469f724f930651d36, type: 2}
+  target: {fileID: 0}
+  stoppingDistance: 1
+  walkPointRange: 20
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 512
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  searchAngleRange: 180
+  sightRange: 50
+  attackRange: 20
+  startingPosition: {x: 0, y: 0, z: 0}
+  attackTimer: 0
+--- !u!114 &114590854059090408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7226978680875959476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 494def1e4f37ff94eb3ced83892ab1c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tankData: {fileID: 11400000, guid: 0b85e01e64f9f1140b76298f6e9b2997, type: 2}
+  bulletBehavior: {fileID: -5355680902507497713, guid: a3fcf6dc0e602264e91055ce77b6fe8f, type: 3}
+  bulletData: {fileID: 11400000, guid: 9a17fb055c06f494382beb7b9f367b34, type: 2}
+  fireTransform: {fileID: 6741945192489287718}
+  bombBehavior: {fileID: 3357847701019975544, guid: 6b823719c766a2b4d918a8f8996a14c7, type: 3}
+  bombData: {fileID: 11400000, guid: ea69b8eaa12238d4490f85b3fd2c5218, type: 2}
+  bombTransform: {fileID: 1799776414868522128}
+  bombPool: []
+  canShoot: 1
 --- !u!1 &7279981528663160518
 GameObject:
   m_ObjectHideFlags: 0
@@ -821,7 +896,7 @@ GameObject:
   - component: {fileID: 8168385553296427265}
   - component: {fileID: 2625788305496151939}
   - component: {fileID: 7707867375604704852}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Tank_Uperbase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -873,6 +948,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -894,6 +971,7 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -909,7 +987,7 @@ GameObject:
   - component: {fileID: 5496468906663296899}
   - component: {fileID: 4652627482656277458}
   - component: {fileID: 56411390933735265}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Tank_Wheels2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -959,6 +1037,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -980,6 +1060,7 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0

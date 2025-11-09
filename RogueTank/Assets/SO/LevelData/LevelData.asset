@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2aa9cbbf225f4d6488578b92c7ebfd34, type: 3}
   m_Name: LevelData
   m_EditorClassIdentifier: Assembly-CSharp::GameSpecific.Tank.Data.LevelData
-  currentLevelIndex: {fileID: 0}
-  bossLevelActive: {fileID: 0}
+  currentLevelIndex: {fileID: 11400000, guid: f7b85695bd2e1f04fa33e61aaa89cf72, type: 2}
+  bossLevelActive: {fileID: 11400000, guid: 208fdba0628f2a449a5ba622f4840d21, type: 2}
   levels:
+  - levelInfo: {fileID: 11400000, guid: ed2b36fb0ab28ec498924832ff3f48cf, type: 2}
+    completed: 0
   - levelInfo: {fileID: 11400000, guid: ed2b36fb0ab28ec498924832ff3f48cf, type: 2}
     completed: 0
