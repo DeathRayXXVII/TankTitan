@@ -18,7 +18,7 @@ namespace GameSpecific.Tank.Data
          
          [SerializeField] private List<LoadLevel> levels;
          
-         public int LevelsCount => levels != null ? levels.Count : 0;
+         public int LevelsCount => levels?.Count ?? 0;
          
          public LevelInfoData GetLevelInfo(int index)
          {

@@ -9,7 +9,7 @@ namespace GameSpecific.Tank
     public class EnemyController : TankController
     {
         [SerializeField] private NavMeshAgent agent;
-        [SerializeField] private GameAction startTankAction;
+        [SerializeField] private GameAction startTankAction, stopTankAction;
         [SerializeField] private Transform target;
         [SerializeField] private float stoppingDistance = 1f;
         [SerializeField] private float walkPointRange;
@@ -49,6 +49,7 @@ namespace GameSpecific.Tank
         private void OnEnable()
         {
             startTankAction.RaiseEvent += TankStart;
+            stopTankAction.RaiseEvent += TankStop;
         }
 
         private void TankStart(GameAction _)
@@ -78,6 +79,7 @@ namespace GameSpecific.Tank
             agent.isStopped = true;
             _canMove = false;
             StopAllCoroutines();
+            gameObject.SetActive(false);
         }
     
         private IEnumerator TankMovement()
@@ -319,13 +321,6 @@ namespace GameSpecific.Tank
 
         protected override void Turn()
         {
-        }
-        protected override void Death()
-        {
-            _canMove = false;
-            agent.isStopped = true;
-            StopAllCoroutines();
-            gameObject.SetActive(false);
         }
         protected override void ResetTank()
         {

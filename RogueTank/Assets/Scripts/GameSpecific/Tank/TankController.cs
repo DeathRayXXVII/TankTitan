@@ -12,7 +12,6 @@ namespace GameSpecific.Tank
         
         protected abstract void Move();
         protected abstract void Turn();
-        protected abstract void Death();
         protected abstract void ResetTank();
     }
 }

@@ -25,11 +25,11 @@ namespace GameSpecific.Tank
         {
             if (!ClearedLevel()) return;
             levelData.MarkLevelCompleted(levelData.currentLevelIndex.Value);
-            clearedEvent?.Invoke();
-
-            if (levelData.currentLevelIndex.Value + 1 <= levelData.LevelsCount)
+            
+            if (levelData.currentLevelIndex.Value <= levelData.LevelsCount)
             {
                 levelData.LevelProgression(levelData.currentLevelIndex.Value);
+                clearedEvent?.Invoke();
             }
             else
             {
