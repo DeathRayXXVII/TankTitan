@@ -2,6 +2,7 @@ using System.Collections;
 using GameSpecific.Tank.Data;
 using UnityEngine;
 using UnityEngine.AI;
+using Random = UnityEngine.Random;
 
 namespace GameSpecific.Tank
 {
@@ -28,14 +29,21 @@ namespace GameSpecific.Tank
         private bool _canMove = true;
         public float attackTimer;
         private float _bombTimer;
-    
-    
+
+
+        private void Awake()
+        {
+            agent = agent == null ? GetComponent<NavMeshAgent>() : agent;
+            var player = GameObject.FindWithTag("Player");
+            if (player != null) target = player.transform;
+        }
+
         private void Start()
         {
-            agent = GetComponent<NavMeshAgent>();
-            target = GameObject.FindWithTag("Player").transform;
+            if (agent == null || tankData == null || tankData.stats == null) return;
             agent.speed = tankData.stats.moveSpeed;
             agent.stoppingDistance = stoppingDistance;
+
         }
     
         private void OnEnable()
@@ -312,12 +320,19 @@ namespace GameSpecific.Tank
         protected override void Turn()
         {
         }
-
+        protected override void Death()
+        {
+            _canMove = false;
+            agent.isStopped = true;
+            StopAllCoroutines();
+            gameObject.SetActive(false);
+        }
         protected override void ResetTank()
         {
             //transform.position = startingPosition;
             agent.Warp(startingPosition);
             _canMove = true;
+            gameObject.SetActive(true);
         }
     
         private void OnDrawGizmosSelected()

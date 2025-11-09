@@ -43,11 +43,28 @@ namespace GameSpecific.Tank.Data
              entry.completed = true;
              levels[index]= entry;
          }
-         
-        public bool IsLevelCompleted(int index)
+
+         private bool IsLevelCompleted(int index)
         {
             if (levels == null || index < 0 || index >= levels.Count) return false;
             return levels[index].completed;
+        }
+
+        public void LevelProgression(int index)
+        {
+            if (!IsLevelCompleted(currentLevelIndex.Value)) return;
+            if (levels == null || index < 0 || index >= levels.Count) return;
+            currentLevelIndex.Value++;
+        }
+        public void ResetAllLevels()
+        {
+            if (levels == null) return;
+            for (var i = 0; i < levels.Count; i++)
+            {
+                var entry = levels[i];
+                entry.completed = false;
+                levels[i] = entry;
+            }
         }
     }
 }

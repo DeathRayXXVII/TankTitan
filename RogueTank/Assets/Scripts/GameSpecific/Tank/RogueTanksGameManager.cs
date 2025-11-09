@@ -10,7 +10,7 @@ namespace GameSpecific.Tank
         [SerializeField] private LevelData levelData;
         [SerializeField] private int currentEnemyCount;
         [SerializeField] private GameAction onStartAction;
-        [SerializeField] private UnityEvent onStart, clearedEvent, failedEvent;
+        [SerializeField] private UnityEvent onStart, clearedEvent, failedEvent, gameCleared;
         
         private void Awake()
         {
@@ -19,10 +19,24 @@ namespace GameSpecific.Tank
         private void Start()
         {
             onStartAction.RaiseAction();
+            onStart?.Invoke();
         }
         public void Cleared()
         {
-            if (ClearedLevel()) clearedEvent?.Invoke();
+            if (!ClearedLevel()) return;
+            levelData.MarkLevelCompleted(levelData.currentLevelIndex.Value);
+            clearedEvent?.Invoke();
+
+            if (levelData.currentLevelIndex.Value + 1 <= levelData.LevelsCount)
+            {
+                levelData.LevelProgression(levelData.currentLevelIndex.Value);
+            }
+            else
+            {
+                gameCleared?.Invoke();
+            }
+            
+            
         }
         private bool ClearedLevel()
         {

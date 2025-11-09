@@ -16,6 +16,6 @@ MonoBehaviour:
   bossLevelActive: {fileID: 11400000, guid: 208fdba0628f2a449a5ba622f4840d21, type: 2}
   levels:
   - levelInfo: {fileID: 11400000, guid: ed2b36fb0ab28ec498924832ff3f48cf, type: 2}
-    completed: 0
-  - levelInfo: {fileID: 11400000, guid: ed2b36fb0ab28ec498924832ff3f48cf, type: 2}
-    completed: 0
+    completed: 1
+  - levelInfo: {fileID: 11400000, guid: 145a1b16748971947bfab6de94a7db31, type: 2}
+    completed: 1

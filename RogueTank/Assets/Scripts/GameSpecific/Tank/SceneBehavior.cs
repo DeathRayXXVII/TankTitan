@@ -15,7 +15,7 @@ namespace GameSpecific.Tank
 
         private GameObject levelRoot;
         
-        private void Start()
+        public void StartLevelLoading()
         {
             if (levelData == null)
             {
@@ -27,6 +27,7 @@ namespace GameSpecific.Tank
 
         private IEnumerator LoadCurrentLevel()
         {
+            if (levelRoot != null) Destroy(levelRoot);
             //if (fader != null) yield return StartCoroutine(fader.FadeOut(fadeDuration));
             var info = levelData.GetCurrentLevelInfo();
             if (info == null || info.levelPrefab == null)
@@ -68,19 +69,14 @@ namespace GameSpecific.Tank
             
             onLevelLoaded?.Invoke();
 
-            StartCoroutine(LevelCompletionClenUp(info));
+            //StartCoroutine(LevelCompletionClenUp(info));
         }
 
-        private IEnumerator LevelCompletionClenUp(LevelInfoData info)
+        /*private IEnumerator LevelCompletionClenUp(LevelInfoData info)
         {
             while (!info.levelCompleted)
             {
                 yield return null;
-            }
-            
-            if (levelData.currentLevelIndex != null)
-            {
-                levelData.MarkLevelCompleted(levelData.currentLevelIndex.Value);
             }
             
             //if (fader != null) yield return StartCoroutine(fader.FadeOut(fadeDuration));
@@ -88,6 +84,6 @@ namespace GameSpecific.Tank
             if (levelRoot != null) Destroy(levelRoot);
             
             //if (fader != null) yield return StartCoroutine(fader.FadeOut(fadeDuration));
-        }
+        }*/
     }
 }

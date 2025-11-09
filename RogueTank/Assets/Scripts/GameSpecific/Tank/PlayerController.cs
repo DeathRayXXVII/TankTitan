@@ -183,6 +183,12 @@ namespace GameSpecific.Tank
             stopAction();
         }
         
+        protected override void Death()
+        {
+            // Implement death behavior (e.g., play animation, disable controls)
+            gameObject.SetActive(false);
+        }
+        
         protected override void ResetTank()
         {
             _rb.linearVelocity = Vector3.zero;

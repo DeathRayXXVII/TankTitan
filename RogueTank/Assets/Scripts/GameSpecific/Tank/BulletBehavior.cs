@@ -33,13 +33,19 @@ namespace GameSpecific.Tank
                 {
                     case 6:
                         playerHitAction.RaiseAction();
+                        collision.gameObject.SetActive(false);
+                        ResetBullet();
                         break;
                     case 7:
                         enemyHitAction.RaiseAction();
+                        collision.gameObject.SetActive(false);
+                        ResetBullet();
+                        break;
+                    case 8:
+                        collision.gameObject.SetActive(false);
+                        ResetBullet();
                         break;
                 }
-                collision.gameObject.SetActive(false);
-                ResetBullet();
             }
             else
             {

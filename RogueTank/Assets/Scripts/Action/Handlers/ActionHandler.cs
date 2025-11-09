@@ -1,44 +1,47 @@
-using UnityEngine;
-using UnityEngine.Events;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
+using UnityEngine.Events;
 
-[System.Serializable]
-public class GameActionEvent
+namespace Action.Handlers
 {
-    public GameAction actionObj;
-    public UnityEvent onRaiseEvent;
-}
-
-[DisallowMultipleComponent]
-public class ActionHandler: MonoBehaviour
-{
-    public List<GameActionEvent> gameActions;
-
-    private void OnEnable()
+    [System.Serializable]
+    public class GameActionEvent
     {
-        // Subscribe to all the events in the list.
-        foreach (var gameAction in gameActions.Where(gameAction => gameAction.actionObj != null))
-        {
-            gameAction.actionObj.RaiseEvent += RaiseEvent;
-        }
+        public GameAction actionObj;
+        public UnityEvent onRaiseEvent;
     }
 
-    private void OnDisable()
+    [DisallowMultipleComponent]
+    public class ActionHandler: MonoBehaviour
     {
-        // Unsubscribe from all the events in the list.
-        foreach (var gameAction in gameActions.Where(gameAction => gameAction.actionObj != null))
+        public List<GameActionEvent> gameActions;
+
+        private void OnEnable()
         {
-            gameAction.actionObj.RaiseEvent -= RaiseEvent;
+            // Subscribe to all the events in the list.
+            foreach (var gameAction in gameActions.Where(gameAction => gameAction.actionObj != null))
+            {
+                gameAction.actionObj.RaiseEvent += RaiseEvent;
+            }
         }
-    }
 
-    private void RaiseEvent(GameAction callingObj)
-    {
-        // Find the first matching GameAction
-        var gameAction = gameActions.FirstOrDefault(action => action.actionObj == callingObj);
+        private void OnDisable()
+        {
+            // Unsubscribe from all the events in the list.
+            foreach (var gameAction in gameActions.Where(gameAction => gameAction.actionObj != null))
+            {
+                gameAction.actionObj.RaiseEvent -= RaiseEvent;
+            }
+        }
 
-        // If found, invoke its onRaiseEvent
-        gameAction?.onRaiseEvent.Invoke();
+        private void RaiseEvent(GameAction callingObj)
+        {
+            // Find the first matching GameAction
+            var gameAction = gameActions.FirstOrDefault(action => action.actionObj == callingObj);
+
+            // If found, invoke its onRaiseEvent
+            gameAction?.onRaiseEvent.Invoke();
+        }
     }
 }

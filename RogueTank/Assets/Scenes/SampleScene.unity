@@ -665,6 +665,10 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 695053136}
+    - target: {fileID: 654385277259474969, guid: 330d0681542d88643ab1a8ba37837c3c, type: 3}
+      propertyPath: startTankAction
+      value: 
+      objectReference: {fileID: 11400000, guid: 35a9d4c0023fe7246a541fae9a166ac2, type: 2}
     - target: {fileID: 7226978680875959476, guid: 330d0681542d88643ab1a8ba37837c3c, type: 3}
       propertyPath: m_Name
       value: ClassicTankBrown
@@ -3307,8 +3311,38 @@ MonoBehaviour:
   onStartAction: {fileID: 11400000, guid: 1faf129c78d0cfb469f724f930651d36, type: 2}
   onStart:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1812213385}
+        m_TargetAssemblyTypeName: GameSpecific.Tank.SceneBehavior, Assembly-CSharp
+        m_MethodName: StartLevelLoading
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   clearedEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1812213385}
+        m_TargetAssemblyTypeName: GameSpecific.Tank.SceneBehavior, Assembly-CSharp
+        m_MethodName: StartLevelLoading
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  failedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  gameCleared:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 11400000, guid: 634534824eedb734280a0856a1098ced, type: 2}
@@ -3320,12 +3354,9 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Level Completed
+          m_StringArgument: Game Won!!!
           m_BoolArgument: 0
         m_CallState: 2
-  failedEvent:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!4 &1812213384
 Transform:
   m_ObjectHideFlags: 0
@@ -3358,7 +3389,7 @@ MonoBehaviour:
   onLevelLoaded:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: 1faf129c78d0cfb469f724f930651d36, type: 2}
+      - m_Target: {fileID: 11400000, guid: 35a9d4c0023fe7246a541fae9a166ac2, type: 2}
         m_TargetAssemblyTypeName: GameAction, Assembly-CSharp
         m_MethodName: RaiseAction
         m_Mode: 1
