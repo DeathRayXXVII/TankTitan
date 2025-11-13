@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Utilities
 {
@@ -7,6 +8,7 @@ namespace Utilities
     public class ScreenFader : MonoBehaviour
     {
         private CanvasGroup _canvasGroup;
+        [SerializeField] private float duration;
         
         private void Awake()
         {
@@ -15,9 +17,19 @@ namespace Utilities
             _canvasGroup.blocksRaycasts = true;
         }
         
-        public IEnumerator FadeOut(float duration)
+        public void StartFadeOut()
         {
-            float elapsed = 0f;
+            StartCoroutine(FadeOut());
+        }
+        
+        public void StartFadeIn()
+        {
+            StartCoroutine(FadeIn());
+        }
+        
+        public IEnumerator FadeOut()
+        {
+            var elapsed = 0f;
             while (elapsed < duration)
             {
                 elapsed += Time.deltaTime;
@@ -28,9 +40,9 @@ namespace Utilities
             _canvasGroup.blocksRaycasts = true;
         }
         
-        public IEnumerator FadeIn(float duration)
+        public IEnumerator FadeIn()
         {
-            float elapsed = 0f;
+            var elapsed = 0f;
             while (elapsed < duration)
             {
                 elapsed += Time.deltaTime;
