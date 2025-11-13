@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.InputSystem;
 
 namespace GameManagement
 {
@@ -10,6 +11,7 @@ namespace GameManagement
         public bool delayPause;
         public bool bypassDelay;
         public float delay = 1f;
+        [SerializeField] private InputActionReference pauseAction;
         public UnityEvent startEvent, resumeEvent;
 
         public bool GameIsPaused

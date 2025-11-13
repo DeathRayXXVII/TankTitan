@@ -7,13 +7,20 @@ namespace GameSpecific.Tank
     public class PlayerController : TankController
     {
         private Rigidbody _rb;
-        [SerializeField] private InputActionReference moveControl;
-        [SerializeField] private InputActionReference turnControl;
-        [SerializeField] private InputActionReference fireControl;
-        [SerializeField] private InputActionReference bombControl;
+        [SerializeField] private PlayerInput playerInput;
+        // [SerializeField] private string moveActionName = "Move";
+        // [SerializeField] private string turnActionName = "Turn";
+        // [SerializeField] private string fireActionName = "Fire";
+        // [SerializeField] private string bombActionName = "Bomb";
+        //
+        // private InputActionReference _moveAction;
+        // private InputActionReference _turnAction;
+        // private InputActionReference _fireAction;
+        // private InputActionReference _bombAction;
         
         private Vector3 _moveTarget;
-        private Quaternion _turnTarget;
+        private Quaternion _turnTarget; 
+        private PlayerInput PlayerInput => playerInput;
         
         private void Awake()
         {
@@ -34,43 +41,14 @@ namespace GameSpecific.Tank
             }
         }
         
-        private System.Action<InputAction.CallbackContext> _onFirePerformed;
-        private System.Action<InputAction.CallbackContext> _onBombPerformed;
-        
         public void OnEnable()
         {
             _rb.linearVelocity = Vector3.zero;
-            
-            moveControl.action.Enable();
-            moveControl.action.performed += HandleMoveInput;
-            
-            turnControl.action.Enable();
-            turnControl.action.performed += HandleTurnInput;
-            
-            _onFirePerformed = _ => tankShooting.FirePreformed();
-            fireControl.action.Enable();
-            fireControl.action.performed += _onFirePerformed;
-            
-            _onBombPerformed = _ => tankShooting.BombPreformed();
-            bombControl.action.Enable();
-            bombControl.action.performed += _onBombPerformed;
         }
         
         public void OnDisable()
         {
             _rb.linearVelocity = Vector3.zero;
-            
-            moveControl.action.Disable();
-            moveControl.action.performed -= HandleMoveInput;
-            
-            turnControl.action.Disable();
-            turnControl.action.performed -= HandleTurnInput;
-            
-            fireControl.action.Disable();
-            fireControl.action.performed -= _onFirePerformed;
-            
-            bombControl.action.Disable();
-            bombControl.action.performed -= _onBombPerformed;
         }
 
         private void Update()
@@ -114,7 +92,7 @@ namespace GameSpecific.Tank
         }
 
         private bool _isMoving;
-        private void HandleMoveInput(InputAction.CallbackContext context)
+        public void HandleMoveInput(InputAction.CallbackContext context)
         {
             if (_isMoving) return;
             _isMoving = true;
@@ -142,7 +120,7 @@ namespace GameSpecific.Tank
         }
 
         private bool _isTurning;
-        private void HandleTurnInput(InputAction.CallbackContext context)
+        public void HandleTurnInput(InputAction.CallbackContext context)
         {
             if (_isTurning) return;
             _isTurning = true;
