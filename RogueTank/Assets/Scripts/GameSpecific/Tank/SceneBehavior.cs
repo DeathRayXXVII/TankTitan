@@ -1,4 +1,5 @@
 using System.Collections;
+using Core.Primitives;
 using GameSpecific.Tank.Data;
 using UnityEngine;
 using UnityEngine.Events;
@@ -11,7 +12,8 @@ namespace GameSpecific.Tank
     {
         [SerializeField] private LevelData levelData;
         [SerializeField] private ScreenFader fader;
-        public UnityEvent onLevelLoaded;
+        [SerializeField] private IntData enemyCount;
+        public UnityEvent onLevelLoaded, beforeFadeInEvent;
 
         private GameObject levelRoot;
         
@@ -30,6 +32,7 @@ namespace GameSpecific.Tank
             if (levelRoot != null) Destroy(levelRoot);
             if (fader != null) yield return StartCoroutine(fader.FadeOut());
             var info = levelData.GetCurrentLevelInfo();
+            enemyCount.Value = levelData.GetLevelInfo(levelData.currentLevelIndex.Value).EnemySpawns.Count;
             if (info == null || info.levelPrefab == null)
             {
                 Debug.LogError("LevelInfoData or levelPrefab is null for the current level.");
@@ -64,6 +67,8 @@ namespace GameSpecific.Tank
             }
             
             levelData.bossLevelActive.value = info.levelPrefab != null && info.levelPrefab.name.ToLower().Contains("boss");
+            
+            beforeFadeInEvent?.Invoke();
             
             if (fader != null) yield return StartCoroutine(fader.FadeIn());
             

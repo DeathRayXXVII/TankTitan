@@ -1,3 +1,4 @@
+using Core.Primitives;
 using GameSpecific.Tank.Data;
 using UnityEngine;
 using UnityEngine.Events;
@@ -8,14 +9,10 @@ namespace GameSpecific.Tank
     {
         [Header("Game Manager")]
         [SerializeField] private LevelData levelData;
-        [SerializeField] private int currentEnemyCount;
+        [SerializeField] private IntData currentEnemyCount;
         [SerializeField] private GameAction onStartAction;
         [SerializeField] private UnityEvent onStart, levelClearedEvent, failedEvent, gameClearedEvent;
         
-        private void Awake()
-        {
-            currentEnemyCount = levelData.GetLevelInfo(levelData.currentLevelIndex.Value).EnemySpawns.Count;
-        }
         private void Start()
         {
             onStartAction.RaiseAction();

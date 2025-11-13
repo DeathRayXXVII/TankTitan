@@ -10,29 +10,29 @@ namespace UI
     [RequireComponent(typeof(TextMeshProUGUI)), DisallowMultipleComponent]
     public class TextMeshProBehavior : MonoBehaviour
     {
-        [SerializeField] private TextMeshProUGUI _textObj;
-        [SerializeField] private bool _updateOnStart;
-        [SerializeField] private StringFactory _text;
+        [SerializeField] private TextMeshProUGUI textObj;
+        [SerializeField] private bool updateOnStart;
+        [SerializeField] private StringFactory text;
         public UnityEvent startEvent;
 
         private void Awake()
         {
             ValidateTMProObject();
-            _text.debugContext = this;
+            text.debugContext = this;
         }
 
         private void Start()
         {
             startEvent.Invoke();
-            if (_updateOnStart) UpdateLabel();
+            if (updateOnStart) UpdateLabel();
         }
     
         private bool ValidateTMProObject()
         {
-            if (_textObj != null) return true;
-            _textObj = GetComponent<TextMeshProUGUI>();
+            if (textObj != null) return true;
+            textObj = GetComponent<TextMeshProUGUI>();
         
-            if (_textObj != null) return true;
+            if (textObj != null) return true;
             Debug.LogError("TextMeshPro Object is null, please assign a TextMeshPro object to this component");
         
             return false;
@@ -52,7 +52,7 @@ namespace UI
             };
         }
 
-        public void UpdateLabel() => HandleUpdateLabel(_text.formattedString);
+        public void UpdateLabel() => HandleUpdateLabel(text.formattedString);
         public void UpdateLabel(string text) => HandleUpdateLabel(text);
         public void UpdateLabel(FloatData obj) => HandleUpdateLabel(obj);
         public void UpdateLabel(IntData obj) => HandleUpdateLabel(obj);
@@ -66,22 +66,22 @@ namespace UI
             switch (value)
             {
                 case float floatValue:
-                    _textObj.text = floatValue.ToString(CultureInfo.InvariantCulture);
+                    textObj.text = floatValue.ToString(CultureInfo.InvariantCulture);
                     break;
                 case FloatData floatData:
-                    _textObj.text = floatData.Value.ToString(CultureInfo.InvariantCulture);
+                    textObj.text = floatData.Value.ToString(CultureInfo.InvariantCulture);
                     break;
                 case int intValue:
-                    _textObj.text = intValue.ToString(CultureInfo.InvariantCulture);
+                    textObj.text = intValue.ToString(CultureInfo.InvariantCulture);
                     break;
                 case IntData intData:
-                    _textObj.text = intData.Value.ToString(CultureInfo.InvariantCulture);
+                    textObj.text = intData.Value.ToString(CultureInfo.InvariantCulture);
                     break;
                 case DoubleData doubleData:
-                    _textObj.text = doubleData.value.ToString(CultureInfo.InvariantCulture);
+                    textObj.text = doubleData.value.ToString(CultureInfo.InvariantCulture);
                     break;
                 case string str:
-                    _textObj.text = str;
+                    textObj.text = str;
                     break;
                 default:
                     Debug.LogError("Value is not a valid type for updating TextMeshPro text", this);
