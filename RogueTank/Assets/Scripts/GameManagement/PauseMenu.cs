@@ -11,10 +11,11 @@ namespace GameManagement
         public bool delayPause;
         public bool bypassDelay;
         public float delay = 1f;
-        [SerializeField] private InputActionReference pauseAction;
-        public UnityEvent startEvent, resumeEvent;
+        [SerializeField] private PlayerInput playerInput;
+        //[SerializeField] private InputActionReference pauseAction;
+        public UnityEvent startEvent, pauseEvent, resumeEvent;
 
-        public bool GameIsPaused
+        private bool GameIsPaused
         {
             get => gameIsPaused;
             set => gameIsPaused = value;
@@ -32,6 +33,22 @@ namespace GameManagement
             delayPause = false;
             GameIsPaused = false;
             Time.timeScale = 1f;
+        }
+        
+        public void OnPause()
+        {
+            if (GameIsPaused)
+            {
+                playerInput.SwitchCurrentActionMap("Player");
+                resumeEvent.Invoke();
+                StartResume();
+            }
+            else
+            {
+                playerInput.SwitchCurrentActionMap("UI");
+                pauseEvent.Invoke();
+                StartPause();
+            }
         }
 
         public void StartResume()
@@ -55,7 +72,16 @@ namespace GameManagement
             bypassDelay = false;
         }
         
-        public void DelayPause()
+        private void StartDelayPause()
+        {
+            delayPause = true;
+            if (delayPause)
+            {
+                StartCoroutine(StartDelay());
+            }
+        }
+
+        private void DelayPause()
         {
             if (delayPause)
             {

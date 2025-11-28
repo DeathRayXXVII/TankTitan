@@ -2071,6 +2071,22 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 9caa3d8a-6b2f-4e8e-8bad-6ede561bd9be
     m_ActionName: UI/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1812213387}
+        m_TargetAssemblyTypeName: GameManagement.PauseMenu, Assembly-CSharp
+        m_MethodName: OnPause
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: fb87edca-8eee-41e6-88cf-01a512350490
+    m_ActionName: 'Player/Menu[/Keyboard/escape]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: Player
@@ -2173,7 +2189,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1812213387}
         m_TargetAssemblyTypeName: GameManagement.PauseMenu, Assembly-CSharp
-        m_MethodName: StartResume
+        m_MethodName: OnPause
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4361,7 +4377,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 04e99b2d04c859d4ba251996f480c17b, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
@@ -4655,26 +4671,17 @@ MonoBehaviour:
   delayPause: 0
   bypassDelay: 0
   delay: 1
-  pauseAction: {fileID: -4990565377763746094, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  playerInput: {fileID: 695053137}
   startEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  pauseEvent:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1641442865}
         m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
         m_MethodName: SetTrigger
         m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Pause
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1812213387}
-        m_TargetAssemblyTypeName: GameManagement.PauseMenu, Assembly-CSharp
-        m_MethodName: StartPause
-        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -4690,18 +4697,6 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
         m_MethodName: SetTrigger
         m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Player
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1812213387}
-        m_TargetAssemblyTypeName: GameManagement.PauseMenu, Assembly-CSharp
-        m_MethodName: StartResume
-        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -4944,7 +4939,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6510119015118919395, guid: eea4df4d1a5141b419426fd6768bafe9, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Video
+      value: Audio
       objectReference: {fileID: 0}
     - target: {fileID: 6510119015118919395, guid: eea4df4d1a5141b419426fd6768bafe9, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
