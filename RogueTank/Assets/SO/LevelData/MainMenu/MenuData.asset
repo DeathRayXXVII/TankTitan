@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2aa9cbbf225f4d6488578b92c7ebfd34, type: 3}
+  m_Name: MenuData
+  m_EditorClassIdentifier: Assembly-CSharp::GameSpecific.Tank.Data.LevelData
+  currentLevelIndex: {fileID: 11400000, guid: 6bb944466226e394aa36285994c07235, type: 2}
+  bossLevelActive: {fileID: 11400000, guid: 208fdba0628f2a449a5ba622f4840d21, type: 2}
+  levels:
+  - levelInfo: {fileID: 11400000, guid: 4cc388b56bda4bb41af295e4dadfadf7, type: 2}
+    completed: 0

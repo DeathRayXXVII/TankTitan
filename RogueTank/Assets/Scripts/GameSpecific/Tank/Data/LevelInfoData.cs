@@ -22,6 +22,7 @@ namespace GameSpecific.Tank.Data
         public bool levelCompleted;
         public GameObject levelPrefab;
         public Vector3 spawnPosition;
+        public Quaternion spawnRotation;
         [SerializeField] private List<EnemySpawnData> enemySpawns;
         [SerializeField] private List<LevelObjects> levelObjects;
         
