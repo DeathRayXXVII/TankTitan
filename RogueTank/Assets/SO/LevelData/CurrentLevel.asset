@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: CurrentLevel
   m_EditorClassIdentifier: Assembly-CSharp::Primitives.IntData
   zeroOnEnable: 0
-  objectValue: 2
+  objectValue: 5

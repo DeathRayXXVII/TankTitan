@@ -15,6 +15,7 @@ MonoBehaviour:
   levelCompleted: 0
   levelPrefab: {fileID: 4589129542509636191, guid: 056319a04a5761e488eae1fbcbaf50a1, type: 3}
   spawnPosition: {x: 0, y: 0, z: 0}
+  spawnRotation: {x: 0, y: 0, z: 0, w: 1}
   enemySpawns:
   - prefab: {fileID: 7226978680875959476, guid: 6fd4698ace5042248974bc569372b46d, type: 3}
     position: {x: 11.2, y: -0.0000009536743, z: -14.5}

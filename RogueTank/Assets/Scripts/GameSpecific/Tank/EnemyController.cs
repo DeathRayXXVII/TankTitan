@@ -79,7 +79,6 @@ namespace GameSpecific.Tank
             agent.isStopped = true;
             _canMove = false;
             StopAllCoroutines();
-            gameObject.SetActive(false);
         }
     
         private IEnumerator TankMovement()

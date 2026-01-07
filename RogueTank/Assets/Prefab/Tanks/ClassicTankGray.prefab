@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2909053724975137404}
   - component: {fileID: 6316604039673394219}
   - component: {fileID: 1427417024071396447}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Tank_Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,7 +101,7 @@ GameObject:
   - component: {fileID: 5659655139374304238}
   - component: {fileID: 7937811080589410769}
   - component: {fileID: 1098695073140269739}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Tank_Wheels4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -190,7 +190,7 @@ GameObject:
   - component: {fileID: 4861669621526681149}
   - component: {fileID: 3089077136010861706}
   - component: {fileID: 6645289647232924733}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Tank_Wheels5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -279,7 +279,7 @@ GameObject:
   - component: {fileID: 5277816597885323077}
   - component: {fileID: 5933939626889115614}
   - component: {fileID: 487521007492210167}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Tank_Wheels1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -366,7 +366,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6741945192489287718}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -399,7 +399,7 @@ GameObject:
   - component: {fileID: 6560377589304316261}
   - component: {fileID: 334211618923368120}
   - component: {fileID: 6597790237607173293}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Tank_Wheels
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -488,7 +488,7 @@ GameObject:
   - component: {fileID: 2185626873715669947}
   - component: {fileID: 372057135523890447}
   - component: {fileID: 7935495862226871917}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Tank_Wheels3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -575,7 +575,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 539347473667354194}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Wheels
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -612,7 +612,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1799776414868522128}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: BombArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -645,7 +645,7 @@ GameObject:
   - component: {fileID: 4298156210777391211}
   - component: {fileID: 3809155366830920883}
   - component: {fileID: 6766073841342003776}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Tank_Baral
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -737,7 +737,7 @@ GameObject:
   - component: {fileID: 7441940670551192497}
   - component: {fileID: 3820702606809135276}
   - component: {fileID: 6978687935758694985}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: ClassicTankGray
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -897,7 +897,7 @@ GameObject:
   - component: {fileID: 8168385553296427265}
   - component: {fileID: 2625788305496151939}
   - component: {fileID: 7707867375604704852}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Tank_Uperbase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -988,7 +988,7 @@ GameObject:
   - component: {fileID: 5496468906663296899}
   - component: {fileID: 4652627482656277458}
   - component: {fileID: 56411390933735265}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Tank_Wheels2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
